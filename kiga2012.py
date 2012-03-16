@@ -44,7 +44,7 @@ ist es wichtig, Eure Meinung zu verschiedenen Bereichen des
 Kindergartenlebens wie Räumlichkeiten, Informationsfluss, Wohlbefinden 
 der Eltern und der Kinder zu erfahren. Diese Fragen bilden den ersten 
 Teil des Fragebogens. Im zweiten Teil gehen wir kurz auf aktuelle Themen
-ein. </p>
+ein. Das sind diesmal Fragen rund um das Thema Beobachtungssystem.</p>
 <p>
 Die Ergebnisse können die Zustände im Kindergarten positiv bestätigen oder 
 aber auch dazu führen, Veränderungen zu erarbeiten und umzusetzen. Indem 
@@ -338,15 +338,46 @@ und vom Team: Petra Welte </p>
     })
     survey["questions"].append({
         "type": "yes-no",
-        "title": u"Aktuelles: Frühstücksangebot",
-        "toc": u"Frühstück",
-        "question": u"Soll das begleitete Frühstücksangebot am Dienstag bis zum Ende des Kiga-Jahres weitergeführt werden?",
+        "title": u"Aktuelles: Beobachtungsmethodik (Informationsstand)",
+        "toc": u"Beobachtung I",
+        "question": u"Am 09. Mai 2012 findet ein pädagogischer Themenelternabend statt. An diesem Abend wollen wir Euch die Weiterentwicklung unseres aktuellen Beobachtungssystems vorstellen. Für die Vorbereitung ist es uns wichtig, Eure Stellungnahme zu kennen.",
         "answer_type": "radio",
-        "choices": (u"Ja", u"Nein", u"Egal"),
+        "choices": GUT_SCHLECHT,
         "subquestions": [
-            u"Das Frühstücksangebot weiterführen?",
+            u"In wie weit bist Du über die Beobachtungsmethode informiert?",
         ],
-        "comment": u"Positive und negative Erfahrungen, Vorschläge und Anregungen:",
+        "comment": u"Wie bist Du zu Deinen Informationen gekommen?",
+        "answer": None,
+    })
+    survey["questions"].append({
+        "type": "yes-no",
+        "title": u"Aktuelles: Beobachtungsmethodik (Effektivität)",
+        "toc": u"Beobachtung II",
+        "question": u"Für wie effektiv hältst Du die Methode?",
+        "answer_type": "radio",
+        "choices": GUT_SCHLECHT,
+        "subquestions": [
+            u"In Hinblick auf die Entwicklung Deines Kindes?",
+            u"In Hinblick auf die Arbeit der Erzieherinnen?",
+            u"In Hinblick auf die Entwicklungsgespräche?",
+        ],
+        "comment": None,
+        "answer": None,
+    })
+    survey["questions"].append({
+        "type": "yes-no",
+        "title": u"Aktuelles: Beobachtungsmethodik (Weitere Infos)",
+        "toc": u"Beobachtung III",
+        "question": u"Welche weiteren Informationen zu diesem Thema möchtest Du am Elternabend erhalten?",
+        "answer_type": "checkbox",
+        "choices": JA,
+        "subquestions": [
+            u"Wie wird konkret im Kindergartenalltag beobachtet?",
+            u"Wie gehen die Kinder mit der Beobachtungssituation um?",
+            u"Welche Erfahrungen haben die Erzieherinnen bisher gemacht?",
+            u"Welches Ziel wird damit verfolgt?",
+        ],
+        "comment": None,
         "answer": None,
     })
     survey["questions"].append({
