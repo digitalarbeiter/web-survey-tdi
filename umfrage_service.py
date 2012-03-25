@@ -378,6 +378,7 @@ if __name__ == "__main__":
         ("/favicon", static_file("files/favicon.gif", "image/gif")),
         ("/robots.txt", static_file("files/robots.txt", "text/plain")),
         ("/neu", run),
+        ("/", run),
     ]
     uServer.run(url_map)
 
