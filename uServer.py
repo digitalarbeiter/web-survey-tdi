@@ -169,7 +169,11 @@ def run(url_map, host="127.0.0.1", port=8000):
                     print "404: %r" % self.path
                     self.send_error(404, "File not found")
                 self.send_response(response["response"])
-                self.send_header("Set-Cookie", "sid=%s; path=/" % sid)
+                if not response.get("no_session", False):
+                    self.send_header("Set-Cookie", "sid=%s; path=/" % sid)
+                else:
+                    print "no session cookie"
+                    self.send_header("Set-Cookie", "sid=; path=/")
                 self.send_header("Cache-Control", "no-store, no-cache, max-age=1")
                 for header, value in response["header"]:
                     self.send_header(header, value)

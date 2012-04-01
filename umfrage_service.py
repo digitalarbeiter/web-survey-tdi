@@ -268,6 +268,7 @@ class QuestionnaireModel(object):
         self.questions = self.survey["questions"]
 
     def get_answers(self, submitted):
+        vote_submitted = False
         for key, values in sorted(submitted.iteritems()):
             if key == "votecode":
                 print "vote code: %r" % values
@@ -286,14 +287,14 @@ class QuestionnaireModel(object):
                             print question
                             question["answer"]["comment"] = \
                                 u"Ungültiger Vote-Code"
-                    return
+                    return vote_submitted
                 submitted_file = os.path.join(
                     SUBMITTED_SURVEY_DIR,
                     "%i.dump" % vote_code,
                 )
                 print submitted_file
                 dump(self.survey, file(submitted_file, "wb"))
-                # TODO FIXME how to communicate success?
+                vote_submitted = True
             elif key.startswith("q_"):
                 q_no = int(key.split("_")[1])
                 question = self.questions[q_no]
@@ -317,6 +318,7 @@ class QuestionnaireModel(object):
                     question["answer"]["answers"][subq_no] = sub_answer
             else:
                 print "unknown key: %r (value: %r)" % (key, values)
+        return vote_submitted
 
     def render_survey_title(self, node):
         node.content = self.survey["title"]
@@ -351,10 +353,38 @@ class QuestionnaireModel(object):
 def run(request, response):
     survey = get_survey(request)
     model = QuestionnaireModel(survey)
+    vote_submitted = False
     if request.postvars:
-        model.get_answers(request.postvars)
+        vote_submitted = model.get_answers(request.postvars)
         dump(survey, file(session_filename(request), "wb"))
-    html = QuestionnaireTemplate.render_string(model)
+    if vote_submitted:
+        html = u"""
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/umfrage.css" />
+  </head>
+  <body>
+    <div class="title">
+      <h1> Umfrage </h1>
+    </div>
+    <div class="toc">
+      <ul>
+        <li><a href="/" class="clickable">Neue Umfrage</a></li>
+      </ul>
+    </div>
+    <div class="questions">
+        <h1> Fertig </h1>
+        Deine Umfrage wurde gespeichert. Vielen Dank für die Teilnahme.
+        <p>/p<>
+        <a href="/" class="clickable">Neue Umfrage starten</a>.
+    </div>
+  </body>
+</html>
+        """.encode("utf8")
+        response["no_session"] = True
+    else:
+        html = QuestionnaireTemplate.render_string(model)
     response["response"] = 200
     response["header"] = [ ("Content-type", "text/html; charset=utf-8"), ]
     response["data"] = html
