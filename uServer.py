@@ -14,6 +14,7 @@ import random
 import urlparse
 import urllib
 import cgi
+import socket
 from hashlib import sha1 as sha
 from cPickle import load, dump
 
