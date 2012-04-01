@@ -380,5 +380,6 @@ if __name__ == "__main__":
         ("/neu", run),
         ("/", run),
     ]
-    uServer.run(url_map)
+    uServer.run(url_map, "127.0.0.1", 8000)
+    #uServer.run(url_map, "88.198.106.203", 80)
 

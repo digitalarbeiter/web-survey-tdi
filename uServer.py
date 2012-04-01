@@ -52,7 +52,7 @@ def static_file(path, content_type, cached=True):
         return _uncached_file_loader
 
 
-def run(url_map, port=8000):
+def run(url_map, host="127.0.0.1", port=8000):
     """ Run a web server, serving the URLs in the url_map with
         the associated handlers. The url_map contains pairs of
         regular expression patterns and handler functions, with
@@ -171,6 +171,13 @@ def run(url_map, port=8000):
                     self.wfile.write(response["data"])
             except KeyboardInterrupt, ex:
                 raise ex
+            except socket.error, ex:
+                # well, that's all water under thw bridge now...
+                pass
+            except IOError, ex:
+                if ex.errno == errno.EPIPE:
+                    pass
+                raise ex
             #except Exception, ex:
             #    print ex
             #    self.send_error(500, "Internal server error")
@@ -184,8 +191,8 @@ def run(url_map, port=8000):
     # Instantiate HTTP server class on port with the
     # inner handler class, thus implicitly passing the
     # url_map.
-    httpd = BaseHTTPServer.HTTPServer(("127.0.0.1", port), GetHandler)
-    print "serving at port: %i" % port
+    httpd = BaseHTTPServer.HTTPServer((host, port), GetHandler)
+    print "serving at: %s:%i" % (host, port)
     httpd.serve_forever()
 
 
