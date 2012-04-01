@@ -111,6 +111,15 @@ und vom Team: Petra Welte </p>
   und daß die Stimmabgabe trotzdem anonym ist - nämlich durch eine
   anonyme Vote-Code-Ausgabe.
 </p>
+<p>
+  Wenn Ihr nach Eingabe und Abschicken des Vote-Codes <b>keine</b>
+  "Vielen Dank für Deine Teilnahme"-Seite seht, war der Vote-Code
+  falsch. Vermutlich vertippt, oder Ihr versucht grade, den Vote-Code
+  Eures Partners nochmal zu verwenden. Probiert es nochmal, <i>Eure
+  Eingaben wurden behalten</i>, Ihr müßt nicht nochmal alles eintippen,
+  nur den Vote-Code auf der "Fertig"-Seite; Ihr könnt direkt wieder
+  dortin springen.
+</p>
 <h2> Mehr Hilfe </h2>
 <p>
   Falls es noch Fragen gibt, bitte per Mail an patrick.schemitz@web.de
