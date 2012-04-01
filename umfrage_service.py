@@ -15,7 +15,7 @@ from cPickle import load, dump
 import tdi
 
 import uServer
-from uServer import static_file
+from uServer import static_file, not_found
 from kiga2012 import survey_factory
 
 
@@ -374,6 +374,7 @@ if __name__ == "__main__":
         generate_votecodes(int(sys.argv[2]))
         sys.exit(0)
     url_map = [
+        ("/w00tw00t", not_found),
         ("/umfrage.css", static_file("umfrage.css", "text/css", False)),
         ("/favicon", static_file("files/favicon.gif", "image/gif")),
         ("/robots.txt", static_file("files/robots.txt", "text/plain")),

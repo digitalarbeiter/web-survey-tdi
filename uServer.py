@@ -30,6 +30,12 @@ class Request(object):
         self.session = session
 
 
+def not_found(request, response):
+    response["response"] = 404
+    response["header"] = [ ("Content-type", "text/html; charset=utf-8"), ]
+    response["data"] = ""
+
+
 def static_file(path, content_type, cached=True):
     """ Serve a file from disk. If cached, the file is read once on
         startup; uncached, the file is read on every access.
