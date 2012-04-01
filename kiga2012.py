@@ -63,7 +63,7 @@ Selbstverständlich werdet Ihr über die Ergebnisse informiert. </p>
 Die Teilnahme an der Befragung ist freiwillig. Die Auswertung erfolgt 
 anonym. </p>
 <p>
-Bitte füllt Eure Fragebogen bis spätestens FIXME Montag, den 29. März 
+Bitte füllt Eure Fragebogen bis spätestens Sonntag, den 15. April 
 aus. </p>
 <p>
 Ein großes Dankeschön schon mal für Eure Unterstützung </p>
