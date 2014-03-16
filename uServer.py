@@ -32,8 +32,8 @@ class Request(object):
 
 def not_found(request, response):
     response["response"] = 404
-    response["header"] = [ ("Content-type", "text/html; charset=utf-8"), ]
-    response["data"] = ""
+    response["header"] = [ ("Content-type", "text/plain; charset=utf-8"), ]
+    response["data"] = "404 page not found"
 
 
 def static_file(path, content_type, cached=True):
@@ -165,9 +165,6 @@ def run(url_map, host="127.0.0.1", port=8000):
             try:
                 if do_get:
                     do_get(Request(path, param, postvars, session), response)
-                if response["response"] == 404:
-                    print "404: %r" % self.path
-                    self.send_error(404, "File not found")
                 self.send_response(response["response"])
                 if not response.get("no_session", False):
                     self.send_header("Set-Cookie", "sid=%s; path=/" % sid)
