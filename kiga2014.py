@@ -44,7 +44,7 @@ ist es wichtig, Eure Meinung zu verschiedenen Bereichen des
 Kindergartenlebens wie Räumlichkeiten, Informationsfluss, Wohlbefinden 
 der Eltern und der Kinder zu erfahren. Diese Fragen bilden den ersten 
 Teil des Fragebogens. Im zweiten Teil gehen wir kurz auf aktuelle Themen
-ein. Das sind diesmal Fragen rund um das Thema Umbau/Renovierung.</p>
+ein. Das sind diesmal Fragen rund um das Thema Austausch.</p>
 <p>
 Die Ergebnisse können die Zustände im Kindergarten positiv bestätigen oder 
 aber auch dazu führen, Veränderungen zu erarbeiten und umzusetzen. Indem 
@@ -53,9 +53,12 @@ die Rahmenbedingungen im Kindergarten zu unser aller Zufriedenheit
 gestalten können. Das kommt den Eltern, den Erzieherinnen und natürlich 
 ganz besonders unseren Kindern zugute. </p>
 <p>
-Wir bitten jeden Elternteil bzw. alle Erziehungsberechtigten, einen 
-eigenen Fragebogen vollständig auszufüllen. Bei Unklarheiten sprecht
-uns gerne an.
+Dieses Jahr geben für jede Familie nur noch einen Vote-Code für den
+Fragebogen aus. Daher bitten wir alle Elternteile bzw. alle
+Erziehungsberechtigten, den Fragebogen <b>gemeinsam</b> auszufüllen.
+</p>
+<p>
+Bei Unklarheiten sprecht uns gerne an.
 </p>
 <p>
 Selbstverständlich werdet Ihr über die Ergebnisse informiert. </p>
@@ -68,7 +71,7 @@ aus. </p>
 <p>
 Ein großes Dankeschön schon mal für Eure Unterstützung </p>
 <p>
-vom Elternbeirat: Lisa </p>
+vom Elternbeirat: Lisa  Enkler und Elke Elsäßer </p>
 <p>
 und vom Team: Petra Welte </p>
             """,
@@ -114,8 +117,7 @@ und vom Team: Petra Welte </p>
 <p>
   Wenn Ihr nach Eingabe und Abschicken des Vote-Codes <b>keine</b>
   "Vielen Dank für Deine Teilnahme"-Seite seht, war der Vote-Code
-  falsch. Vermutlich vertippt, oder Ihr versucht grade, den Vote-Code
-  Eures Partners nochmal zu verwenden. Probiert es nochmal, <i>Eure
+  falsch. Vermutlich vertippt... Probiert es nochmal, <i>Eure
   Eingaben wurden behalten</i>, Ihr müßt nicht nochmal alles eintippen,
   nur den Vote-Code auf der "Fertig"-Seite; Ihr könnt direkt wieder
   dortin springen.

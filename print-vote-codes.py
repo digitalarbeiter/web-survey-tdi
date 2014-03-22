@@ -4,8 +4,8 @@
 import sys
 from pickle import load
 
-TITLE = "Kindergarten St. Michael Elternumfrage 2012"
-URL = "http://kiga.digitalarbeiter.de/"
+TITLE = "Kindergarten St. Michael Elternumfrage 2014"
+URL = "http://digitalarbeiter.de:8080/"
 VOTECODE_FMT = "Vote-Code: %i"
 sep = max(len(TITLE), len(URL)) * "-"
 vc = load(file(sys.argv[1], "rb"))
