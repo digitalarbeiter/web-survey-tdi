@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.6
 # -*- coding: utf8 -*-
 # 
 # Umfrage Kiga
@@ -16,7 +16,7 @@ import tdi
 
 import uServer
 from uServer import static_file, not_found
-from kiga2014 import survey_factory
+from kiga2015 import survey_factory
 
 
 VOTE_CODE_PATH = "data/vote-codes.dump"
