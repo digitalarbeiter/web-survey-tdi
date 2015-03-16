@@ -4,7 +4,7 @@
 import sys
 from pickle import load
 
-TITLE = "Kindergarten St. Michael Elternumfrage 2014"
+TITLE = "Kindergarten St. Michael Elternumfrage 2015"
 URL = "http://digitalarbeiter.de:8080/"
 VOTECODE_FMT = "Vote-Code: %i"
 sep = max(len(TITLE), len(URL)) * "-"
