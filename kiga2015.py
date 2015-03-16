@@ -39,12 +39,9 @@ Hier findet Ihr die diesjährige schriftliche Elternbefragung,
 die der Elternbeirat zusammen mit dem Erzieherinnenteam erarbeitet hat. </p>
 <p>
 Ziel des Fragebogens ist es, Eure Zufriedenheit mit unserem Kindergarten
-abzufragen und wichtige Impulse zu geben, ihn weiterzuentwickeln. Dafür 
-ist es wichtig, Eure Meinung zu verschiedenen Bereichen des 
-Kindergartenlebens wie Räumlichkeiten, Informationsfluss, Wohlbefinden 
-der Eltern und der Kinder zu erfahren. Diese Fragen bilden den ersten 
-Teil des Fragebogens. Im zweiten Teil gehen wir kurz auf aktuelle Themen
-ein. Das sind diesmal Fragen rund um das Thema Austausch.</p>
+abzufragen und wichtige Impulse zu geben, ihn weiterzuentwickeln. 
+Auch dieses Jahr fragen wir wieder nach der Zufriedenheit mit den
+Angeboten, Informationsfluss, Organisation und Unternehmungen. </p>
 <p>
 Die Ergebnisse können die Zustände im Kindergarten positiv bestätigen oder 
 aber auch dazu führen, Veränderungen zu erarbeiten und umzusetzen. Indem 
@@ -52,6 +49,9 @@ Ihr also die vorliegenden Fragen beantwortet, tragt Ihr dazu bei, dass wir
 die Rahmenbedingungen im Kindergarten zu unser aller Zufriedenheit 
 gestalten können. Das kommt den Eltern, den Erzieherinnen und natürlich 
 ganz besonders unseren Kindern zugute. </p>
+<p>
+Bitte nehmt Euch Zeit für die Anmerkungen, da diese uns nochmal ein
+genaueres Bild geben. </p>
 <p>
 Auch dieses Jahr geben für jede Familie nur einen Vote-Code für den
 Fragebogen aus. Daher bitten wir alle Elternteile bzw. alle
@@ -66,12 +66,12 @@ Selbstverständlich werdet Ihr über die Ergebnisse informiert. </p>
 Die Teilnahme an der Befragung ist freiwillig. Die Auswertung erfolgt 
 anonym. </p>
 <p>
-Bitte füllt Eure Fragebogen bis spätestens Sonntag, den 13. April
+Bitte füllt Eure Fragebogen bis spätestens Sonntag, den 01. April
 aus. </p>
 <p>
 Ein großes Dankeschön schon mal für Eure Unterstützung </p>
 <p>
-vom Elternbeirat: Lisa  Enkler und Elke Elsäßer </p>
+vom Elternbeirat: Lisa Enkler und Judith Starck </p>
 <p>
 und vom Team: Petra Welte </p>
             """,
@@ -349,85 +349,6 @@ und vom Team: Petra Welte </p>
         "comment": u"Gründe, Ergänzungen, Anmerkungen:",
         "answer": None,
     })
-
-    survey["questions"].append({
-        "type": "yes-no",
-        "title": u"Aktuelles: Elternabende",
-        "toc": u"Aktelles: Elternabende",
-        "question": u"Im diesjährigen aktuellen Teil geht es um Austausch bei den Punkten Elternabende, Austausch Eltern-Erzieher und Austausch zwischen Eltern.<p />",
-        "answer_type": "radio",
-        "choices": JA_NEIN,
-        "subquestions": [
-            u"Bist Du zufrieden mit den Elternabenden?",
-        ],
-        "comment": u"Anmerkungen",
-        "answer": None,
-    })
-    survey["questions"].append({
-        "type": "free-comment",
-        "title": u"Aktuelles: Themen Elternabende",
-        "toc": u"Elternabend Themen",
-        "question": u"Die Idee für den letzten Elternabend zum Thema Ernährung kam von Seiten der Eltern. Das Team wünscht sich (z. B. als Input für Diskussionen) weitere Ideen für thematische Elternabende. Zu welchen Themen würdest Du Dir weitere Elternabende wünschen? (Bitte mehrere Wünsche angeben)",
-        "comment": u"",
-        "answer": None,
-    })
-    survey["questions"].append({
-        "type": "yes-no",
-        "title": u"Aktuelles: Austausch zwischen Eltern und Erzieherinnen",
-        "toc": u"Austausch Erzieherinnen",
-        "question": u"Bist Du zufrieden mit...",
-        "answer_type": "radio",
-        "choices": JA_NEIN,
-        "subquestions": [
-            u"... den Entwicklungsgesprächen?",
-            u"... den Elterngesprächen bei aktuellen Bedarf?",
-            u"... den Tür und Angel Gesprächen – Kurzinfos über das Kind? (Unwohlsein, Geschehnisse)",
-            u"... persönlichen Terminabsprachen? (Geburtstagsfeier, Schulranzen mitbringen etc.)",
-        ],
-        "comment": u"Anmerkungen",
-        "answer": None,
-    })
-    survey["questions"].append({
-        "type": "yes-no",
-        "title": u"Aktuelles: Austausch zwischen Eltern",
-        "toc": u"Austausch Eltern",
-        "question": u"",
-        "answer_type": "radio",
-        "choices": JA_NEIN,
-        "subquestions": [
-            u"Hast du grundsätzlich Interesse, Dich auch ohne Kinder mit anderen Eltern zu treffen? (z. B. Elternstammtisch, Caférunde...)",
-            u"Gibt es für Dich genug Möglichkeiten, sich mit anderen Eltern auszutauschen?",
-        ],
-        "comment": u"Anmerkungen",
-        "answer": None,
-    })
-    survey["questions"].append({
-        "type": "yes-no",
-        "title": u"Aktuelles: Austausch zwischen Eltern II",
-        "toc": u"Austausch Eltern II",
-        "question": u"",
-        "answer_type": "radio",
-        "choices": [ u"Monatlich", u"Pro Quartal", u"Halbjährlich", u"kein Interesse" ],
-        "subquestions": [
-            u"Falls du Interesse hast dich mit anderen Eltern zu treffen, wie oft würdest du bevorzugen?",
-        ],
-        "comment": u"Anmerkungen",
-        "answer": None,
-    })
-    survey["questions"].append({
-        "type": "yes-no",
-        "title": u"Aktuelles: Beteiligung an einmaligen Aktionen",
-        "toc": u"Aktionsbeteiligung",
-        "question": u"",
-        "answer_type": "radio",
-        "choices": [ u"Ja", u"Nein" ],
-        "subquestions": [
-            u"Wärst du unabhängig davon bereit, Dich an einmaligen Aktionen (z. B. Ausflug, kreative Projekte…) in Deiner Freizeit zu beteiligen?",
-        ],
-        "comment": u"Anmerkungen",
-        "answer": None,
-    })
-
 
     survey["questions"].append({
         "type": "free-comment",
