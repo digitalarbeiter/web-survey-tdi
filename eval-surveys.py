@@ -7,6 +7,7 @@ import os
 import sys
 from cPickle import load
 import cjson
+from pprint import pprint
 
 
 def all_datasets(path, predicate=None):
@@ -31,7 +32,8 @@ def collect_questions(path, predicate=None):
             questions.append(None)
             answers.append([])
         for idx, q in enumerate(survey):
-            answers[idx].append(cjson.decode(q["answer"]))
+            pprint(q)
+            answers[idx].append(q["answer"])
             if not questions[idx]:
                 q.pop("answer")
                 questions[idx] = q
@@ -49,7 +51,7 @@ def evaluate_question(question, answers):
     comments = []
     sub_totals = [ [0.0 for j in choices] for i in subquestions ]
     for answer in answers:
-        if answer.get("comment"):
+        if answer and answer.get("comment"):
             comments.append(answer["comment"])
         if question_type == "yes-no":
             for i_sub_q, sub_a in enumerate(answer["answers"]):
@@ -104,14 +106,22 @@ if __name__ == "__main__":
     except OSError, ex:
         print "cannot create target directory:", outdir
         sys.exit(1)
-    with file(os.path.join(outdir, "report.txt"), "wb") as report:
-        report.write("# Umfrage 2011\n")
+    with file(os.path.join(outdir, "report.html"), "wb") as report:
+        report.write("""
+        <html>
+        <head>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+        </head>
+        <body>
+        """)
+        report.write("<h1> Umfrage 2015 </h1>\n")
         report.write("\n\n")
+
         for idx, (q, a) in enumerate(zip(questions, answers)):
 
             print "question:", q["question"]
 
-            report.write("## \"%s\"\n\n" % q["question"].encode("utf8"))
+            report.write("<h2> \"%s\" </h2>\n\n" % q["question"].encode("utf8"))
             answers, comments = evaluate_question(q, a)
 
             if answers:
@@ -121,11 +131,9 @@ if __name__ == "__main__":
                 cell_len[0] = max(map(len, rows))
                 fmt = "%%-%is" % cell_len[0]
                 cols[0] = fmt % cols[0]
-                hr = "+-" + "-+-".join(n * "-" for n in cell_len) + "-+"
-                report.write(hr.encode("utf8") + "\n")
-                line = "| " + " | ".join(cols) + " |"
+                report.write("<table border=\"1\">\n")
+                line = "<tr> <th>" + " </th><th> ".join(cols) + "</th> </tr>"
                 report.write(line.encode("utf8") + "\n")
-                report.write(hr.encode("utf8") + "\n")
                 for i, subanswer in enumerate(answers):
                     cells = [ ]
                     fmt = "%%-%is" % cell_len[0]
@@ -133,26 +141,33 @@ if __name__ == "__main__":
                     for choice, count in subanswer:
                         fmt = "%%%ii" % len(choice)
                         cells.append(fmt % int(count))
-                    line = "| " + " | ".join(cells) + " |"
+                    line = "<tr> <td>" + " </td><td> ".join(cells) + "</td> </tr>"
                     report.write(line.encode("utf8") + "\n")
-                    report.write(hr.encode("utf8") + "\n")
+                    report.write("</tr>\n")
+                report.write("</table>\n")
             report.write("\n\n")
 
             # some nice pics
-            report.write("### Abbildungen\n\n")
+            report.write("<h3> Abbildungen </h3>\n\n")
             for i, subanswer in enumerate(answers):
-                fname = os.path.join(outdir, "fig_%02i_%02i.png" % (idx, i))
+                basename = "fig_%02i_%02i.png" % (idx, i)
+                fname = os.path.join(outdir, basename)
                 title = q["subquestions"][i]
                 plot_question(fname, title, subanswer)
-                report.write("![image](%s)\n" % fname)
-                #report.write("![%s](%s)\n" % (title.encode("utf8"), fname))
+                report.write("<img src=\"%s\">\n" % basename)
             report.write("\n\n")
 
             # comments section, if any
             if comments:
-                report.write("### Anmerkungen\n")
+                report.write("<h3> Anmerkungen </h3>\n")
+                report.write("<ul>\n")
                 for comment in comments:
-                    report.write(" * %s\n" % comment.strip().replace("\r", "").replace("\n", ". ").encode("utf8"))
-                report.write("\n\n")
+                    try:
+                        report.write(" <li> %s </li>\n" % comment.strip().replace("\r", "").replace("\n", ". ")) #.encode("utf8"))
+                    except (UnicodeDecodeError, UnicodeEncodeError), ex:
+                        print repr(comment)
+                        #raise ex
+                report.write("</ul>\n\n")
+        report.write("</body>\n<html>\n\n")
 
 
